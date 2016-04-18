@@ -33,6 +33,6 @@ V(g)$label <- V(g)$name
 V(g)$size=3
 V(g)$color="green"
 tkplot(g)
-g
+
 
 
