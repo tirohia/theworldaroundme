@@ -13,6 +13,7 @@ user<-getUser("3rdKingsland")
 #following<-user$getFriends()
 followers<-user$getFollowers()
 connections<-data.frame(origin=user$name,destination=followers.df$name)
+followers<-followers[175:178]
 
 ## The Sys.sleep is to get around twitter's request rate limiting.
 for (user in followers){
@@ -21,7 +22,7 @@ for (user in followers){
   nextFollowers.df<-twListToDF(nextFollowers)
   userOverlap<-intersect(nextFollowers.df$name,userList)
   if (length(userOverlap)>0){
-    connections <-rbind(connections,data.frame(origin=nextUser$name,destination=userOverlap))
+    connections <-rbind(connections,data.frame(origin=user$name,destination=userOverlap))
   }
   Sys.sleep(10)
 }
